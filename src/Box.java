@@ -12,6 +12,7 @@ public class Box extends JButton
 	static final Icon O = new ImageIcon(Box.class.getResource("O.png"));
 	
 	public boolean isChangable = true;
+	public byte value = ' ';
 	
 	public Box()
 	{
@@ -22,7 +23,7 @@ public class Box extends JButton
 		this.addActionListener(handler);
 	}
 	
-	public void changeTurn()
+	static public void changeTurn()
 	{
 		if(turn == 'X') turn = 'O';
 		else turn ='X';
@@ -35,7 +36,7 @@ public class Box extends JButton
 			if(turn=='X') this.setIcon(X);
 			else this.setIcon(O);
 			isChangable = false;
-			changeTurn();
+			value = turn;
 		}
 	}
 	
@@ -44,6 +45,7 @@ public class Box extends JButton
 		public void actionPerformed(ActionEvent event)
 		{
 			setSign();
+			Board.status();
 		}
 	}
 }
