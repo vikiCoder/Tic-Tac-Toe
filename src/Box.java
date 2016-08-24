@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 public class Box extends JButton
 {
 	static byte turn='X';
+	static int turndone=0;
 	static final Icon BLANK = new ImageIcon(Box.class.getResource("BLANK.png"));
 	static final Icon X = new ImageIcon(Box.class.getResource("X.png"));
 	static final Icon O = new ImageIcon(Box.class.getResource("O.png"));
@@ -37,6 +38,7 @@ public class Box extends JButton
 			else this.setIcon(O);
 			isChangable = false;
 			value = turn;
+			turndone++;
 		}
 	}
 	
